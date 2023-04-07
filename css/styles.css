@@ -18,6 +18,8 @@
   --filter-btn-box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
   --cubic-besier: cubic-bezier(0.4, 0, 0.2, 1);
+  --modal-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 /* ----------------------------------RESET---------------------------- */
@@ -567,4 +569,60 @@ body {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--background-color, #f4f4fd);
+}
+
+/* ------------------BACKDROP--------------- */
+
+.backdrop {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(46, 47, 66, 0.4);
+  transition: opacity 700ms var(--cubic-besier), visibility 700ms var(--cubic-besier);
+}
+
+.modal {
+  position: absolute;
+  width: 408px;
+  min-height: 576px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 700ms var(--cubic-besier);
+
+  padding: 24px;
+  background-color: #fcfcfc;
+  box-shadow: var(--modal-box-shadow);
+  border-radius: 4px;
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(1.25);
+}
+
+.button-close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  color: #2e2f42;
+  width: 24px;
+  height: 24px;
+  background-color: #e7e9fc;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50% 50%;
+  transition: color 250ms var(--cubic-besier);
+}
+
+.button-close:is(:hover, :focus) {
+  color: var(--hero-title-btn-color);
+}
+.icon-close {
+  fill: currentColor;
+}
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
