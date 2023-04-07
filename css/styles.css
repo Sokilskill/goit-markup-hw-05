@@ -225,7 +225,7 @@ body {
   width: 100%;
   height: 4px;
   border-radius: 2px;
-  background-color: var(--pressed-state-color);
+  background-color: currentColor;
 }
 
 /* --------------------------CONTACT------------------------------------ */
