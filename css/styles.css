@@ -211,6 +211,9 @@ body {
   position: relative;
   color: var(--navy-blue-color, #2e2f42);
 }
+.current {
+  color: var(--pressed-state-color);
+}
 
 .current::after {
   position: absolute;
